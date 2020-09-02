@@ -7,9 +7,11 @@ let haikyuuSchema = new mongoose.Schema({
         minlength: 1,
         maxlength: 99
     },
-    position: String,
-    school: mongoose.Schema.Types.ObjectId,
-    ref: 'School'
+    position: String
+    // school: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'School'
+    // } 
 })
 
 module.exports = mongoose.model('Haikyuu', haikyuuSchema)
