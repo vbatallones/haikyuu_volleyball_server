@@ -44,22 +44,6 @@ router.post('/', (req, res) => {
     })
 })
 
-//POST /School
-router.post('/', (req, res) => {
-    db.School.create(req.body)
-    .then(createdSchool => {
-        console.log(createdSchool)
-        res.status(201).send(createdSchool)
-    })
-    .catch(err => {
-        if(err.name === 'ValidationError') {
-            res.status(406).send({message:'Validation Error'})
-        } else {
-            res.status(503).send({message: 'Database or server error!'})
-        }
-    })
-})
-
 //PUT /haikyuus/:id
 router.put('/:id', (req, res) => {
     db.Haikyuu.findByIdAndUpdate({

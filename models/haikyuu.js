@@ -1,5 +1,12 @@
 const mongoose = require('mongoose')
 
+let schoolSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    }
+})
+
 let haikyuuSchema = new mongoose.Schema({
     playerName: {
         type: String,
@@ -7,11 +14,11 @@ let haikyuuSchema = new mongoose.Schema({
         minlength: 1,
         maxlength: 99
     },
-    position: String
-    // school: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'School'
-    // } 
+    position: String,
+    image: String,
+    school : [schoolSchema]
 })
+
+
 
 module.exports = mongoose.model('Haikyuu', haikyuuSchema)
